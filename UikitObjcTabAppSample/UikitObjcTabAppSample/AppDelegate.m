@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,61 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+	
+	//initialize Window
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] ;
+	
+	
+	//ViewController1
+	ViewController *viewContoller1=[[ViewController alloc] init];
+	[viewContoller1.view setBackgroundColor:[UIColor whiteColor]];
+	
+	UIView *view1=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+	[view1 setBackgroundColor:[UIColor redColor]];
+	[viewContoller1.view addSubview:view1];
+	
+	UIView *view2=[[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+	[view2 setBackgroundColor:[UIColor blueColor]];
+	[viewContoller1.view addSubview:view2];
+	
+	
+	
+	
+	//ViewController2
+	ViewController *viewContoller2=[[ViewController alloc] init];
+	[viewContoller2.view setBackgroundColor:[UIColor redColor]];
+	
+	
+	
+	//ViewController3
+	ViewController *viewContoller3=[[ViewController alloc] init];
+	[viewContoller3.view setBackgroundColor:[UIColor blueColor]];
+	
+	
+	
+	//ViewController4
+	ViewController *viewContoller4=[[ViewController alloc] init];
+	[viewContoller4.view setBackgroundColor:[UIColor grayColor]];
+	
+	
+	UITabBarController *tabbarController;
+	tabbarController=[[UITabBarController alloc] init];
+	viewContoller1.tabBarItem=[[UITabBarItem alloc] initWithTitle:@"나들이"   image:nil tag:0];    //custom
+	viewContoller2.tabBarItem=[[UITabBarItem alloc] initWithTitle:@"계산"    image:nil tag:1];     //custom
+	viewContoller3.tabBarItem=[[UITabBarItem alloc] initWithTitle:@"메인"    image:nil tag:2];     //custom
+	viewContoller4.tabBarItem=[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:3];               //system 제공
+	tabbarController.viewControllers=[NSArray arrayWithObjects:viewContoller1,viewContoller2,viewContoller3,viewContoller4,nil];    //뷰컨트롤러 연결
+	
+	
+	//RootViewController Assign
+	//self.window.rootViewController = viewContoller1;
+	//self.window.rootViewController =[tabbar.viewControllers objectAtIndex:0];
+	self.window.rootViewController =tabbarController;
+	
+	//[self.window addSubview:tabbar.view];
+	[self.window makeKeyAndVisible];
 	return YES;
 }
 
