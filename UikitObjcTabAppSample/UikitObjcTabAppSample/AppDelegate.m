@@ -22,7 +22,6 @@
 	//initialize Window
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] ;
 	
-	
 	//ViewController1
 	ViewController *viewContoller1=[[ViewController alloc] init];
 	[viewContoller1.view setBackgroundColor:[UIColor whiteColor]];
@@ -31,16 +30,13 @@
 	[view1 setBackgroundColor:[UIColor redColor]];
 	[viewContoller1.view addSubview:view1];
 	
-	UIView *view2=[[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-	[view2 setBackgroundColor:[UIColor blueColor]];
-	[viewContoller1.view addSubview:view2];
-	
-	
-	
-	
 	//ViewController2
 	ViewController *viewContoller2=[[ViewController alloc] init];
 	[viewContoller2.view setBackgroundColor:[UIColor redColor]];
+	
+	UIView *view2=[[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+	[view2 setBackgroundColor:[UIColor blueColor]];
+	[viewContoller2.view addSubview:view2];
 	
 	
 	
@@ -65,23 +61,21 @@
 	
 	
 	//RootViewController Assign
-	//self.window.rootViewController = viewContoller1;
-	//self.window.rootViewController =[tabbar.viewControllers objectAtIndex:0];
 	self.window.rootViewController =tabbarController;
-	
-	//[self.window addSubview:tabbar.view];
 	[self.window makeKeyAndVisible];
 	return YES;
 }
 
 
-- (void)applicationWillResignActive:(UIApplication *)application {
+- (void)applicationWillResignActive:(UIApplication *)application
+{
 	// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
 	// Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
 
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
 	// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 	// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
